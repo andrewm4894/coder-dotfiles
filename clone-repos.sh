@@ -5,13 +5,14 @@
 # failures (e.g. Coder external auth not ready yet) retry on the next workspace start.
 set -uo pipefail
 
+# Core subset — see /phs posthog-repos for the full landscape; add more as needed.
 REPOS=(
-  posthog.com code
-  charts posthog-cloud-infra runbooks
-  posthog-js posthog-python posthog-go
-  ai-plugin signals-chaos
-  twig.com llm-analytics-apps skills posthog-demo-3000
-  requests-for-comments-internal
+  posthog.com
+  code
+  posthog-js
+  ai-plugin
+  skills
+  runbooks
 )
 
 for repo in "${REPOS[@]}"; do
