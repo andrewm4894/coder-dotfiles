@@ -12,7 +12,7 @@ REPOS=(
   posthog-js
   ai-plugin
   skills
-  runbooks
+  # runbooks — 403s: the Coder GitHub app isn't granted access to it; clone by hand if needed
 )
 
 for repo in "${REPOS[@]}"; do
