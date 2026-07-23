@@ -10,6 +10,7 @@ hogli devbox:setup --configure-dotfiles
 
 ## What it does
 
+- Clones the PostHog repo landscape (`clone-repos.sh`, backgrounded, shallow, idempotent)
 - Adds shell aliases (`gcm`, `gcmm`, `gpp`) via a managed block in `~/.bash_aliases`
 - Reapplies git commit-signing config from the `POSTHOG_GIT_SIGNING_KEY` secret if the template's boot-time bootstrap raced and left the box unconfigured
 

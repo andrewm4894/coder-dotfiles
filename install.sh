@@ -26,4 +26,9 @@ if [ -n "${POSTHOG_GIT_SIGNING_KEY:-}" ] && [ "$(git config --global --get commi
   echo "coder-dotfiles: reapplied git signing config (template bootstrap had not)"
 fi
 
-echo "coder-dotfiles: install.sh done"
+# --- Clone the PostHog repo landscape (see clone-repos.sh) ---
+# Backgrounded so workspace start isn't blocked by ~15 clones.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+nohup bash "$SCRIPT_DIR/clone-repos.sh" >> "$HOME/.coder-dotfiles-clone.log" 2>&1 &
+
+echo "coder-dotfiles: install.sh done (repo clones continue in background, see ~/.coder-dotfiles-clone.log)"
